@@ -1,0 +1,32 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* background: #333; */
+    padding: 1.3em;
+}
+
+a {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #000;
+    overflow: hidden;
+}
+a {
+    background: linear-gradient(to right, #D7DDE8, #D7DDE8 50%, #000 50%);
+}   
+a  {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+}
+a {
+    transition: background-position 275ms ease;
+}
+a:hover {
+    background-position: 0 100%;
+}
