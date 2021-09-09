@@ -13,6 +13,7 @@ a {
     font-weight: 800;
     color: #000;
     overflow: hidden;
+    cursor: pointer;
 }
 a {
     background: linear-gradient(to right, #D7DDE8, #D7DDE8 50%, #000 50%);

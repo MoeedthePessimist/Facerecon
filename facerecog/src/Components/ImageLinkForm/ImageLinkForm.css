@@ -1,0 +1,57 @@
+.imageLinkForm__input__container {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
+}
+
+.imageLinkForm__input {
+    flex: 50;
+    border: 2px solid black;
+    padding: 1em 2em;
+    background: transparent;
+}
+
+.imageLinkForm__input::placeholder {
+    color: black;
+}
+
+/* .imageLinkForm__input:{
+    border: none;
+} */
+
+.imageLinkForm__detect {
+    flex: 30;
+}
+
+
+.fill {
+    --color: lightblue;
+    --hover: lightblue;
+}
+
+button {
+    color: var(--color);
+    transition: 0.25s;
+}
+button:hover, button:focus {
+    border-color: var(--hover);
+    color: #fff;
+}
+
+.fill:hover,
+.fill:focus {
+    box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    /* line-height: 1; */
+    /* margin: 0.5em; */
+    padding: 1em 2em;
+}
+
+
+
+

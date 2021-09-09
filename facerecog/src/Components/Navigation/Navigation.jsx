@@ -1,10 +1,10 @@
 import React from 'react';
 import './Navigation.css';
 
-function Navigation() {
+function Navigation({ onRouteChange }) {
     return (
         <div class='navigation'>
-            <a href="#">Sign out</a>
+            <a onClick={() => onRouteChange('signin')}>Sign out</a>
         </div>
     );
 };
