@@ -12,33 +12,37 @@ class SignIn extends React.Component {
     }
 
     onEmailChange = (event) => {
-    //   this.setState({signInEmail: event.target.value})
+        this.setState({signInEmail: event.target.value})
+        console.log(this.state.signInEmail);
     }
 
     onPasswordChange = (event) => {
-    //   this.setState({signInPassword: event.target.value})
+        this.setState({signInPassword: event.target.value})
+        console.log(this.state.signInPassword);
     }
 
     onSubmitSignIn = () => {
-    //   fetch('http://localhost:3000/signin', {
-    //     method: 'post',
-    //     headers: {'Content-Type': 'application/json'},
-    //     body: JSON.stringify({
-    //       email: this.state.signInEmail,
-    //       password: this.state.signInPassword
-    //     })
-    //   })
-    //     .then(response => response.json())
-    //     .then(user => {
-    //       if (user.id) {
-    //         this.props.loadUser(user)
-    //         this.props.onRouteChange('home');
-    //       }
-    //     })
+        fetch('http://localhost:5500/signin', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+            email: this.state.signInEmail,
+            password: this.state.signInPassword
+            })
+        })
+        .then(response => response.json())
+        .then(user => {
+        if (user.id) {
+            this.props.loadUser(user)
+            this.props.onRouteChange('home');
+        }
+        })
     }
+
     render() {
+
     const { onRouteChange } = this.props;
-        console.log(onRouteChange);
+        // console.log(onRouteChange);
 
     return (
     <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -70,7 +74,7 @@ class SignIn extends React.Component {
                 </fieldset>
                 <div className="">
                 <input
-                    onClick={() => onRouteChange('home')}
+                    onClick={() => this.onSubmitSignIn()}
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                     type="submit"
                     value="Sign in"
@@ -78,7 +82,7 @@ class SignIn extends React.Component {
                 </div>
                 <div className="lh-copy mt3">
                 <p  onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
-                </div>
+                </div> 
             </div>
             </main>
         </article>

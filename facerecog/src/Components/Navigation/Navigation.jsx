@@ -3,7 +3,7 @@ import './Navigation.css';
 
 function Navigation({ onRouteChange }) {
     return (
-        <div class='navigation'>
+        <div className='navigation'>
             <a onClick={() => onRouteChange('signin')}>Sign out</a>
         </div>
     );

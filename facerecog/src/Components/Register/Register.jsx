@@ -9,35 +9,36 @@ class Register extends React.Component {
         }
     }
     onNameChange = (event) => {
-        // this.setState({name: event.target.value})
+        this.setState({name: event.target.value})
     }
     onEmailChange = (event) => {
-        // this.setState({email: event.target.value})
+        this.setState({email: event.target.value})
     }
     onPasswordChange = (event) => {
-        // this.setState({password: event.target.value})
+        this.setState({password: event.target.value})
     }
     onSubmitSignIn = () => {
-        // fetch('http://localhost:3000/register', {
-        // method: 'post',
-        // headers: {'Content-Type': 'application/json'},
-        // body: JSON.stringify({
-        //     email: this.state.email,
-        //     password: this.state.password,
-        //     name: this.state.name
-        // })
-        // })
-        // .then(response => response.json())
-        // .then(user => {
-        //     if (user) {
-        //     this.props.loadUser(user)
-        //     this.props.onRouteChange('home');
-        //     }
-        // })
+        fetch('http://localhost:5500/register', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            email: this.state.email,
+            password: this.state.password,
+            name: this.state.name
+        })
+    })
+        .then(response => response.json())
+        .then(user => {
+            if (user.id) {
+            this.props.loadUser(user)
+            this.props.onRouteChange('home');
+            }
+        })
     }
 
 
     render() {
+        const { onRouteChange } = this.props;
         return (
             <div style={{height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                 <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
@@ -78,8 +79,8 @@ class Register extends React.Component {
                             </fieldset>
                             <div className="">
                             <input
-                                // onClick={this.onSubmitSignIn}
-                                onClick={() => this.props.onRouteChange('home')}
+                                onClick={this.onSubmitSignIn}
+                                // onClick={() => this.props.onRouteChange('home')}
                                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                                 type="submit"
                                 value="Register"
